@@ -1,15 +1,12 @@
 #source 'https://rubygems.org'
 source 'http://ruby.taobao.org'
 
-gem 'rails', '3.2.8'
+gem 'rails'
 
 # Javascript library
 gem 'jquery-rails'
 
-# Database
-# gem 'pg'
-# gem 'mysql2'
-gem 'sqlite3'
+gem 'pg'
 
 # Design Pattern Practice
 # gem 'cells'
@@ -20,18 +17,6 @@ gem 'sqlite3'
 
 # Form tool
 # gem "simple_form"
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
 
 group :assets do
   gem 'sass-rails'
@@ -50,23 +35,19 @@ group :development, :test do
   gem 'pry-remote'
   gem 'pry-debugger'
   gem 'ffaker'
-  gem "spork"
-  gem 'spork-rails'
-  gem "rspec-rails"
   gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'rack_session_access'
   gem "guard-spork"
   gem 'guard-livereload'
   gem 'guard-rspec'
   gem 'guard-rails'
   gem "guard-bundler"
-end
-
-group :test do
-  if RUBY_PLATFORM =~ /linux/
-    gem 'rb-inotify'
-    gem 'libnotify'
-  end
-  gem 'database_cleaner'
-  gem 'shoulda-matchers'
-  gem 'rack_session_access'
+  gem "spork"
+  gem 'spork-rails'
+  gem "rspec-rails"
 end
