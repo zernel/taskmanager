@@ -39,6 +39,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rb-fsevent'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'rack_session_access'
