@@ -21,6 +21,8 @@ gem 'pg'
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
+  gem 'bootstrap-sass'
+  gem 'compass-rails'
   gem 'therubyracer', :platforms => :ruby
   gem 'uglifier'
 end

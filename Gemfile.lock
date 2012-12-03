@@ -32,11 +32,13 @@ GEM
     arel (3.0.2)
     awesome_print (1.0.2)
     binding_of_caller (0.6.8)
+    bootstrap-sass (2.1.0.1)
     bourne (1.1.2)
       mocha (= 0.10.5)
     builder (3.0.4)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
+    chunky_png (1.2.6)
     coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -46,6 +48,12 @@ GEM
       execjs
     coffee-script-source (1.4.0)
     columnize (0.3.6)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
     coolline (0.4.0)
     daemons (1.1.9)
     database_cleaner (0.9.1)
@@ -72,6 +80,7 @@ GEM
       railties (>= 3.0.0)
     ffaker (1.15.0)
     ffi (1.2.0)
+    fssm (0.2.9)
     grit (2.5.0)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -240,7 +249,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   coffee-rails
+  compass-rails
   database_cleaner
   factory_girl_rails
   ffaker
