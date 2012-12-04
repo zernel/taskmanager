@@ -1,0 +1,225 @@
+/* Landcape tablet */
+@media (min-width: 980px) and (max-width: 1200px) {
+	div.container-fluid.content-wrapper {
+		padding-right: 17px;
+	}
+	
+	ul.top-nav-boxes li a, div.color-switcher {
+		min-width: 67px;
+	}
+	
+	ul.left-menu li {
+		font-size: 13px;
+		padding: 10px 5px 10px 7px;
+	}
+	
+	ul.left-menu li span.box {
+		padding-right: 5px;
+	}
+	
+	ul.left-menu li ul.submenu li {
+		padding: 0 0 0 5px;
+	}
+	
+	ul.left-menu li ul.submenu li span.box {
+		padding-right: 5px;
+	}
+	
+	ul.top-nav-boxes li i {
+		font-size: 23px;
+	}
+	
+	ul.stats-sparkline li {
+		min-width: 75px !important;
+		max-width: 75px !important;
+	}
+	
+	iframe.iframe-icon {
+		height: 6700px;
+	}
+
+}
+
+/*Common for all responsive below */
+@media (max-width: 979px) {
+
+	div.sidebar-nav {
+		width: 62px;
+		text-align: center;
+	}
+	
+	ul.left-menu li {
+		padding-left: 20px;
+	}
+	
+	ul.left-menu li ul.submenu li {
+		padding-left: 0;
+		border-bottom: none;
+	}
+	
+	p.navbar-text.pull-right {
+		float: none;
+		text-align: right;
+	}
+	
+	a.btn.logout {
+		margin-right: 5px;
+	}
+	
+	div.comment-controls, div.comment-info {
+		float: none;
+	}
+	
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+	
+	iframe.iframe-icon {
+	    height: 5200px;
+	    width: 600px;
+	}
+	
+	div.input-append.date input, div.input-append.color input {
+		width: 65.7459%;
+	}
+	
+	.pagination ul > li > a, .pagination ul > li > span {
+		padding: 4px 8px;
+	}
+	
+	form.navbar-search.pull-right {
+		text-align: right;
+	}
+
+	form.navbar-search.pull-right input {
+		width: 214px;
+	}
+	
+	.row-fluid .span4.login-span {
+		min-width: 350px !important;		
+	}
+
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+
+	div.container-fluid.content-wrapper {
+		padding-right: 17px;
+	}
+	
+	div.sidebar-nav {
+		width: 47px;
+		text-align: center;
+	}
+	
+	ul.left-menu li {
+		padding-left: 15px;
+	}
+	
+	.fs1 {
+		font-size: 1.5em;
+	}
+	
+	.glyph {
+		padding: 5px;
+		line-height: 20px;
+		margin: 5px;
+		width: 85px;
+	}
+	
+	.glyph input, .mtm {
+		margin-top: 5px;
+	}
+	
+	body.iframe-icon-body {
+		width: 99%;
+	}
+	
+	iframe.iframe-icon, div.w-main.centered.radmin-icons {
+	    width: 97%;
+	}
+	
+	iframe.iframe-icon {
+		height: 6400px;
+	}
+	
+	.box1 {
+		width: 13em;
+	}
+	
+	div.controls-row input, div.controls-row select {
+		margin-bottom: 5px;
+	}
+	
+	.row-fluid .controls-row [class*="span"] + [class*="span"] {
+		margin-left: 0;
+	}
+	
+	.fc-header-title h2 {
+		font-size: 12px !important;
+	}
+	
+	.fc-header .fc-button .fc-button-content {
+		padding: 0 5px !important;
+	}
+	
+	.the-icons li {
+		float: none;
+		display: block;
+		width: 100%;
+	}
+	
+	div.login-inner .input-append .add-on, div.login-inner .input-prepend .add-on {
+		padding: 4px 6px;
+	}
+	
+	footer.black-gradient {
+		margin-left: -20px;
+		margin-right: -20px;	
+	}
+
+}
+
+/* Landscape phones and down */
+@media (max-width: 500px) {
+
+	body {
+		padding: 0 0 0 10px;
+		width: 470px;
+	}
+	
+	.hero-unit {
+		padding: 30px 30px 60px;	
+	}
+	
+	div.sidebar-nav {
+		width: 47px;
+		text-align: center;
+	}
+	
+	ul.left-menu li {
+		padding-left: 15px;
+	}
+	
+	body.iframe-icon-body {
+		width: 99%;
+	}
+	
+	iframe.iframe-icon, div.w-main.centered.radmin-icons {
+	    width: 97%;
+	}
+	
+	iframe.iframe-icon {
+		height: 8600px;
+	}
+	
+	footer.black-gradient {
+		margin-left: -20px;
+		margin-right: -20px;	
+	}
+
+
+}
+

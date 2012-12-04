@@ -2,22 +2,6 @@
 @import "normalize";
 @import "bootstrap";
 @import "bootstrap-responsive";
-
-/* Large desktop */
-@media (min-width: 1200px) { h1 {color: red;} }
-
-/* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) { h1 {color: yellow;} }
-
-/* Landscape phone to portrait tablet */
-@media (max-width: 767px) { h1 {color: green;} }
-
-/* Landscape phones and down */
-@media (max-width: 480px) { h1 {color: black;} }
-
-body {
-  background-color: #e0e0e0;
-  background-image: url('wood.png');
-  margin: 0;
-  padding: 0;
-}
+@import "icon-style";
+@import "radmin";
+@import "radmin-responsive";
