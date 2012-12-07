@@ -4,7 +4,7 @@ end
 
 def create_development_data
   #create_developer
-  create_projects unless Project.count > 0
+  create_projects
 end
 
 #def create_administrator
@@ -21,8 +21,8 @@ end
 #end
 
 def create_projects
-  if Project.count > 0
-    20.times do
+  unless Project.count > 0
+    8.times do
       project_name = Faker::Name.name
       project = Project.create(name: project_name, description: Faker::Lorem.paragraphs(5), identifier: project_name.urlize, status: :open)
     end

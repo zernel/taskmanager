@@ -217,6 +217,8 @@ GEM
     shoulda-matchers (1.4.2)
       activesupport (>= 3.0.0)
       bourne (~> 1.1.2)
+    simple_enum (1.5.1)
+      activesupport (>= 3.0.0)
     slop (3.3.3)
     spork (1.0.0rc3)
     spork-rails (3.2.0)
@@ -274,6 +276,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   shoulda-matchers
+  simple_enum
   spork
   spork-rails
   sqlite3

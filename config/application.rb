@@ -17,6 +17,8 @@ end
 
 module Taskmanager
   class Application < Rails::Application
+    Dir[File.join(Rails.root, 'lib', '*.rb')].each {|l| require l }
+    Dir[File.join(Rails.root, "lib", "core_ext", "*.rb")].each {|l| require l }
     Time::DATE_FORMATS.merge!(:default => "%Y/%m/%d %I:%M %p", :ymd => "%Y/%m/%d")
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
