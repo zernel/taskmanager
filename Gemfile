@@ -38,6 +38,7 @@ group :development, :test do
   gem 'pry-debugger'
   gem 'ffaker'
   gem 'factory_girl_rails'
+  gem "rspec-rails"
 end
 
 group :test do
@@ -52,5 +53,4 @@ group :test do
   gem "guard-bundler"
   gem "spork"
   gem 'spork-rails'
-  gem "rspec-rails"
 end
