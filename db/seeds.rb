@@ -22,9 +22,11 @@ end
 
 def create_projects
   unless Project.count > 0
-    8.times do
-      project_name = Faker::Name.name
-      project = Project.create(name: project_name, description: Faker::Lorem.paragraphs(5), identifier: project_name.urlize, status: :open)
+    [:open, :close].each do |status|
+      4.times do
+        project_name = Faker::Name.name
+        project = Project.create(name: project_name, description: Faker::Lorem.paragraphs(5), identifier: project_name.urlize, status: status)
+      end
     end
   end
 end
