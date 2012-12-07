@@ -4,7 +4,7 @@ describe "projects/show" do
   before(:each) do
     @project = assign(:project, stub_model(Project,
       :name => "Name",
-      :description => "MyText",
+      :overview => "MyText",
       :identifier => "Identifier",
       :status_cd => 1
     ))

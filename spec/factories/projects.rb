@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :project do
     name "MyString"
-    description "MyText"
+    overview "MyText"
     identifier "MyString"
     status_cd 1
   end

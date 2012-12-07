@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Description</th>
+    <th>overview</th>
     <th>Identifier</th>
     <th>Status cd</th>
     <th></th>
@@ -14,7 +14,7 @@
 <% @projects.each do |project| %>
   <tr>
     <td><%= project.name %></td>
-    <td><%= project.description %></td>
+    <td><%= project.overview %></td>
     <td><%= project.identifier %></td>
     <td><%= project.status_cd %></td>
     <td><%= link_to 'Show', project %></td>

@@ -15,11 +15,11 @@ ActiveRecord::Schema.define(:version => 20121207155453) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
-    t.text     "description"
+    t.text     "overview"
     t.string   "identifier"
     t.integer  "status_cd"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
