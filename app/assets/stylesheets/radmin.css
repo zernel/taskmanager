@@ -115,8 +115,12 @@ a.user-info:hover {
 }
 
 .navbar-search {
-	padding: 7px 20px 10px 0;
+	padding: 9px 20px 5px 0;
 	margin-top: 0;
+}
+
+.navbar-text {
+  margin-top: 3px;
 }
 
 .user-icon {
