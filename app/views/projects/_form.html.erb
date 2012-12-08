@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.select :project_status, Project.project_statuses_for_select %>
+    <%= f.select :status, Project.statuses_for_select %>
   </div>
   <div class="actions">
     <%= f.submit %>

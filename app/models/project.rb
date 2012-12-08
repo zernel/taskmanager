@@ -1,19 +1,11 @@
 class Project < ActiveRecord::Base
-  attr_accessible :overview, :identifier, :name, :project_status
+  attr_accessible :overview, :identifier, :name, :status
   has_many :tasks
 
   STATUS = [:active, :inactive, :archived]
-  as_enum :project_status, STATUS, :column => "status_cd"
+  as_enum :status, STATUS, :column => "status_cd"
 
   STATUS.each do |status|
-    scope status, where(status_cd: Project.project_statuses(status))
-  end
-
-  def active?
-    # status == :open && tasks.present?
-  end
-
-  def spent_time
-    # tasks spent time sum
+    scope status, where(status_cd: statuses(status))
   end
 end

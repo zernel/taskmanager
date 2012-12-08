@@ -5,11 +5,7 @@
     <div class="container-fluid content-wrapper">
       <div class="row-fluid">
         <div class="span12">
-          <div class="hero-unit">
-            <p>
-            This is your dashboard. Here you'll find a quick breakdown of everything that's been happening on your site, such as traffic reports, site statistics, sales, recent posts and lots more.
-            </p>
-          </div>
+          <%= render "tasks/list" %>
         </div>
       </div>
     </div>
@@ -20,11 +16,15 @@
   </div>
 </div>
 
-<script type="text/javascript" charset="utf-8">
-  $(function() {
-    var submenus = $('ul.left-menu li ul.submenu');
-    $.each(submenus, function(index, submenu) {
-      $(submenu).find('li:last').addClass('submenu-last');
-    });
-  })
-</script>
+<style type="text/css" media="all">
+  #task-list a.accordion-toggle {
+    font-size: 17px;
+    text-decoration: none;
+    color: #333333;
+  }
+  div.squiggly-border {
+    background: url('assets/border8.png') repeat-x transparent;
+    height: 9px;
+    margin-bottom: 20px;
+  }
+</style>

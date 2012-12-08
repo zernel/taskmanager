@@ -1,8 +1,16 @@
 class Task < ActiveRecord::Base
-  attr_accessible :subject, :description, :priority, :project_id, :status, :type
+  attr_accessible :subject, :description, :priority, :project, :status, :type
   belongs_to :project
 
-  as_enum :type, [:feature, :bug, :research]
-  as_enum :priority, [:regular, :high]
-  as_enum :status, [:todo, :toreview, :done]
+  STATUS = [:todo, :toreview, :done]
+  TYPE = [:feature, :bug, :research]
+  PRIORITY = [:regular, :high]
+
+  as_enum :status, STATUS
+  as_enum :type, TYPE
+  as_enum :priority, PRIORITY
+
+  STATUS.each do |status|
+    scope status, where(status_cd: statuses(status))
+  end
 end

@@ -1,0 +1,53 @@
+<div class="accordion" id="task-list">
+  <h3>Todos</h3>
+  <div class="squiggly-border"></div>
+  <% @tasks.todo.each do |task| %>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#task-list" href=<%= "#collapse-#{task.id}" %>>
+          <%= task.subject %>
+          <span class="label label-success">Feature</span>
+          <span class="label label-warning">Bug</span>
+          <span class="label label-info">Research</span>
+        </a>
+      </div>
+      <div id=<%= "collapse-#{task.id}" %> class="accordion-body collapse">
+        <div class="accordion-inner">
+          <%= task.description %>
+        </div>
+      </div>
+    </div>
+  <% end -%>
+  <h3>ToReviews</h3>
+  <div class="squiggly-border"></div>
+  <% @tasks.toreview.each do |task| %>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#task-list" href=<%= "#collapse-#{task.id}" %>>
+          <%= task.subject %>
+        </a>
+      </div>
+      <div id=<%= "collapse-#{task.id}" %> class="accordion-body collapse">
+        <div class="accordion-inner">
+          <%= task.description %>
+        </div>
+      </div>
+    </div>
+  <% end -%>
+  <h3>Dones</h3>
+  <div class="squiggly-border"></div>
+  <% @tasks.done.each do |task| %>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#task-list" href=<%= "#collapse-#{task.id}" %>>
+          <%= task.subject %>
+        </a>
+      </div>
+      <div id=<%= "collapse-#{task.id}" %> class="accordion-body collapse">
+        <div class="accordion-inner">
+          <%= task.description %>
+        </div>
+      </div>
+    </div>
+  <% end -%>
+</div>

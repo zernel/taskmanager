@@ -2,7 +2,7 @@ Taskmanager::Application.routes.draw do
   root :to => 'tasks#index'
 
   resources :projects
-  #resources :tasks
+  resources :tasks
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
