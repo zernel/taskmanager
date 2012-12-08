@@ -24,8 +24,8 @@
     <%= f.text_field :identifier %>
   </div>
   <div class="field">
-    <%= f.label :status_cd %><br />
-    <%= f.number_field :status_cd %>
+    <%= f.label :status %><br />
+    <%= f.select :project_status, Project.project_statuses_for_select %>
   </div>
   <div class="actions">
     <%= f.submit %>

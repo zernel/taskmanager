@@ -22,12 +22,19 @@ end
 
 def create_projects
   unless Project.count > 0
-    [:open, :close].each do |status|
-      4.times do
-        project_name = Faker::Name.name
-        project = Project.create(name: project_name, overview: Faker::Lorem.paragraphs(1), identifier: project_name.urlize, status: status)
-      end
-    end
+    #[:active, :inactive, :archived].each do |status|
+      #4.times do
+        #project_name = Faker::Name.name
+        #Project.create(name: project_name, overview: Faker::Lorem.paragraphs(1), identifier: project_name.urlize, project_status: status)
+      #end
+    #end
+    Project.create(name: "Rick Balbi Architects", identifier: "rickbalbi", project_status: :active, overview: "Web site for Rick Balbi Architects")
+    Project.create(name: "Rentcharlie", identifier: "rcc", project_status: :active, overview: "New version of RentCharlie.com web site")
+    Project.create(name: "Good Time Party Rentals", identifier: "gtprental", project_status: :active)
+    Project.create(name: "Suncoast", identifier: "suncoast", project_status: :inactive, overview: "Suncoast Enclosures Web Project")
+    Project.create(name: "Sunridge RV", identifier: "sunridgerv", project_status: :inactive, overview: "Sunridge RV Web Project")
+    Project.create(name: "Reggin", identifier: "reggin", project_status: :archived)
+    Project.create(name: "Enercore", identifier: "enercore", project_status: :archived)
   end
 end
 

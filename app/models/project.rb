@@ -1,6 +1,8 @@
 class Project < ActiveRecord::Base
-  attr_accessible :overview, :identifier, :name, :status
-  as_enum :status, open: 1, close: 0
+  attr_accessible :overview, :identifier, :name, :project_status
+  has_many :tasks
+
+  as_enum :project_status, [:active, :inactive, :archived], :column => "status_cd"
 
   def active
     # status == :open && tasks.present?
