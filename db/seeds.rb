@@ -25,7 +25,7 @@ def create_projects
     [:open, :close].each do |status|
       4.times do
         project_name = Faker::Name.name
-        project = Project.create(name: project_name, overview: Faker::Lorem.paragraphs(5), identifier: project_name.urlize, status: status)
+        project = Project.create(name: project_name, overview: Faker::Lorem.paragraphs(1), identifier: project_name.urlize, status: status)
       end
     end
   end
