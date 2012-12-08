@@ -8,6 +8,7 @@ gem 'jquery-rails'
 
 gem 'pg'
 
+gem 'simple_enum'
 # Design Pattern Practice
 # gem 'cells'
 # gem 'draper'
