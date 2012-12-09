@@ -5,6 +5,7 @@
     <div class="container-fluid content-wrapper">
       <div class="row-fluid">
         <div class="span12">
+          <%= render 'sites/notice' %>
           <div class="accordion" id="task-list">
             <% @tasks.group_by(&:status).each do |status, tasks| %>
               <h3><%= status.to_s.pluralize.capitalize %></h3>
