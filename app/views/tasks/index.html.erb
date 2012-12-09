@@ -5,7 +5,14 @@
     <div class="container-fluid content-wrapper">
       <div class="row-fluid">
         <div class="span12">
-          <%= render "tasks/list" %>
+          <div class="accordion" id="task-list">
+            <h3>Todos</h3>
+            <%= render "tasks/listbox", tasks: @tasks.todo %>
+            <h3>ToReviews</h3>
+            <%= render "tasks/listbox", tasks: @tasks.toreview %>
+            <h3>Dones</h3>
+            <%= render "tasks/listbox", tasks: @tasks.done %>
+          </div>
         </div>
       </div>
     </div>
