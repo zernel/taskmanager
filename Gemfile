@@ -3,14 +3,13 @@ source 'http://ruby.taobao.org'
 
 gem 'rails'
 
-# Javascript library
 gem 'jquery-rails'
-
 gem 'pg'
 
 gem 'simple_enum'
-# Design Pattern Practice
-# gem 'cells'
+gem 'cells'
+#gem 'haml'
+#gem 'haml-rails'
 # gem 'draper'
 
 # Paginator
