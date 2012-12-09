@@ -1,7 +1,7 @@
 <div class="sidebar-nav">
   <ul class="nav nav-stacked left-menu">
-    <li>
-    <a href="#">
+    <li class=<%= "active" unless @project %>>
+    <a href=<%= root_path %>>
       <span class="box">
         <i class="radmin-icon radmin-book"></i>
       </span>
@@ -10,29 +10,29 @@
     </li>
 
     <% Project.active.each do |project| %>
-      <li id=<%= project.identifier %>>
+      <li id=<%= project.identifier %> class=<%= "active" if @project == project %>>
         <a href=<%= project_tasks_path(project) %>>
           <span class="box">
             <i class="radmin-icon radmin-file"></i>
           </span>
           <span class="hidden-tablet hidden-phone"><%= project.identifier %></span>
-          <span class="label pull-right hidden-tablet hidden-phone"><%= project.tasks.count %></span>
         </a>
       </li>
     <% end -%>
 
-    <li>
+    <li class=<%= "active" if @project.try(:status) == :inactive %>>
       <a class="accordion-toggle" data-toggle="collapse" data-parent="navigation-components" href="#inactive-projects">
         <span class="box">
           <i class="radmin-icon radmin-cabinet"></i>
         </span>
         <span class="hidden-tablet hidden-phone">Inactive</span>
+        <span class="label pull-right hidden-tablet hidden-phone"><%= Project.inactive.count %></span>
       </a>
       <div id="inactive-projects" class="accordion-body collapse">
         <ul class="nav nav-stacked submenu">
           <% Project.inactive.each do |project| %>
             <li>
-              <a href="#">
+              <a href=<%= project_tasks_path(project) %>>
                 <span class="box">
                   <i class="radmin-icon radmin-file-2"></i>
                 </span>
@@ -44,18 +44,19 @@
       </div>
     </li>
 
-    <li>
+    <li class=<%= "active" if @project.try(:status) == :archived %>>
       <a class="accordion-toggle" data-toggle="collapse" data-parent="navigation-components" href="#archived-projects">
         <span class="box">
           <i class="radmin-icon radmin-cabinet"></i>
         </span>
         <span class="hidden-tablet hidden-phone">Archived</span>
+        <span class="label pull-right hidden-tablet hidden-phone"><%= Project.archived.count %></span>
       </a>
       <div id="archived-projects" class="accordion-body collapse">
         <ul class="nav nav-stacked submenu">
           <% Project.archived.each do |project| %>
             <li>
-              <a href="#">
+              <a href=<%= project_tasks_path(project) %>>
                 <span class="box">
                   <i class="radmin-icon radmin-file-2"></i>
                 </span>
