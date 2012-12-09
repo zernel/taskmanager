@@ -3,17 +3,42 @@
   <div class="accordion-group priority-<%= task.priority %>">
     <div class="accordion-heading">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#task-list" href=<%= "#collapse-#{task.id}" %>>
+        <i class="radmin-icon radmin-checkbox<%= "-unchecked" if task.todo? %>"></i>
         <%= task.subject %>
         <% if @project.nil? %>
-          <span class="label"><%= task.project.name %></span>
+          <span class="label label-inverse"><%= task.project.name %></span>
         <% end -%>
         <span class="label label-<%= task.type %>"><%= task.type.capitalize %></span>
+        <% if task.todo? %>
+          <span class="label">Doing</span>
+        <% end -%>
       </a>
     </div>
     <div id=<%= "collapse-#{task.id}" %> class="accordion-body collapse">
       <div class="accordion-inner">
-        <%= task.description %>
+        <div>
+          <b>Description:</b>
+          <p><%= task.description %></p>
+        </div>
+        <div class="btn-group">
+          <% if task.todo? %>
+            <button class="btn btn-small"><i class="icon-tag"></i> Take it</button>
+            <button class="btn btn-small"><i class="icon-ok"></i> Finish</button>
+            <button class="btn btn-small"><i class="icon-pencil"></i> Edit</button>
+            <%= link_to [task.project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small"  do %>
+              <i class="icon-remove"></i> Delete
+            <% end -%>
+          <% elsif task.toreview? %>
+            <button class="btn btn-small"><i class="icon-repeat"></i> Rollback</button>
+            <button class="btn btn-small"><i class="icon-ok"></i> Checked</button>
+          <% end -%>
+        </div>
       </div>
     </div>
   </div>
 <% end -%>
+
+<script type="text/javascript" charset="utf-8">
+  // For test
+  $('#collapse-19').addClass('in');
+</script>
