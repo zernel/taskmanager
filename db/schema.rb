@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(:version => 20121208022133) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "projects", ["identifier"], :name => "index_projects_on_identifier"
+
   create_table "tasks", :force => true do |t|
     t.string   "subject"
     t.text     "description"

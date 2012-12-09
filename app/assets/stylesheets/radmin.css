@@ -459,3 +459,28 @@ div.squiggly-border {
   height: 9px;
   margin-bottom: 20px;
 }
+
+/*hero unit*/
+div.hero-unit {
+  color: #FFF;
+  background-color: #4F4F4F;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: solid 1px #333;
+  margin-bottom: 20px;
+  filter: none;
+  padding: 40px;
+  font-size: 16px;
+  line-height: 25px;
+}
+div.hero-unit h1 {
+  font-size: 38px;
+  margin-top: -20px;
+  padding-bottom: 15px;
+}
+div.hero-unit button.close {
+  position: relative;
+  top: -35px;
+  right: -25px;
+}

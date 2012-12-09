@@ -5,7 +5,19 @@
     <div class="container-fluid content-wrapper">
       <div class="row-fluid">
         <div class="span12">
-          <%= render "tasks/list" %>
+
+          <ul class="breadcrumb">
+            <li><a href=<%= root_path %>>Home</a> <span class="divider">/</span></li>
+            <li><a href="javascript:void(0);"><%= @project.name %></a> <span class="divider">/</span></li>
+            <li class="active">Tasks</li>
+          </ul>
+
+          <div class="accordion" id="task-list">
+            <% @tasks.group_by(&:status).each do |status, tasks| %>
+              <h3><%= status.to_s.pluralize.capitalize %></h3>
+              <%= render "tasks/listbox", tasks: tasks %>
+            <% end -%>
+          </div>
         </div>
       </div>
     </div>

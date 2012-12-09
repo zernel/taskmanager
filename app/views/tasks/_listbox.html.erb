@@ -1,0 +1,19 @@
+<div class="squiggly-border"></div>
+<% tasks.each do |task| %>
+  <div class="accordion-group priority-<%= task.priority %>">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#task-list" href=<%= "#collapse-#{task.id}" %>>
+        <%= task.subject %>
+        <% if @project.nil? %>
+          <span class="label"><%= task.project.name %></span>
+        <% end -%>
+        <span class="label label-<%= task.type %>"><%= task.type.capitalize %></span>
+      </a>
+    </div>
+    <div id=<%= "collapse-#{task.id}" %> class="accordion-body collapse">
+      <div class="accordion-inner">
+        <%= task.description %>
+      </div>
+    </div>
+  </div>
+<% end -%>

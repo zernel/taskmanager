@@ -10,6 +10,7 @@ class Task < ActiveRecord::Base
   as_enum :type, TYPE
   as_enum :priority, PRIORITY
 
+  scope :active, where('status_cd IN (?)', [statuses(:todo), statuses(:toreview)])
   STATUS.each do |status|
     scope status, where(status_cd: statuses(status))
   end
