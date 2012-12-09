@@ -1,0 +1,79 @@
+<div class="sidebar-nav">
+  <ul class="nav nav-stacked left-menu">
+    <li class="active">
+    <a href="#">
+      <span class="box">
+        <i class="radmin-icon radmin-book"></i>
+      </span>
+      <span class="hidden-tablet hidden-phone">All Tasks</span>
+    </a>
+    </li>
+
+    <% Project.active.each do |project| %>
+      <li>
+        <a href="#">
+          <span class="box">
+            <i class="radmin-icon radmin-file"></i>
+          </span>
+          <span class="hidden-tablet hidden-phone"><%= project.identifier %></span>
+          <span class="label pull-right hidden-tablet hidden-phone"><%= project.tasks.count %></span>
+        </a>
+      </li>
+    <% end -%>
+
+    <li>
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="navigation-components" href="#inactive-projects">
+        <span class="box">
+          <i class="radmin-icon radmin-cabinet"></i>
+        </span>
+        <span class="hidden-tablet hidden-phone">Inactive</span>
+      </a>
+      <div id="inactive-projects" class="accordion-body collapse">
+        <ul class="nav nav-stacked submenu">
+          <% Project.inactive.each do |project| %>
+            <li>
+              <a href="#">
+                <span class="box">
+                  <i class="radmin-icon radmin-file-2"></i>
+                </span>
+                <span class="hidden-tablet hidden-phone"><%= project.identifier %></span>
+              </a>
+            </li>
+          <% end -%>
+        </ul>
+      </div>
+    </li>
+
+    <li>
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="navigation-components" href="#archived-projects">
+        <span class="box">
+          <i class="radmin-icon radmin-cabinet"></i>
+        </span>
+        <span class="hidden-tablet hidden-phone">Archived</span>
+      </a>
+      <div id="archived-projects" class="accordion-body collapse">
+        <ul class="nav nav-stacked submenu">
+          <% Project.archived.each do |project| %>
+            <li>
+              <a href="#">
+                <span class="box">
+                  <i class="radmin-icon radmin-file-2"></i>
+                </span>
+                <span class="hidden-tablet hidden-phone"><%= project.identifier %></span>
+              </a>
+            </li>
+          <% end -%>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    var submenus = $('ul.left-menu li ul.submenu');
+    $.each(submenus, function(index, submenu) {
+      $(submenu).find('li:last').addClass('submenu-last');
+    });
+  })
+</script>
