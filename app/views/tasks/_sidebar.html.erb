@@ -1,6 +1,6 @@
 <div class="sidebar-nav">
   <ul class="nav nav-stacked left-menu">
-    <li class="active">
+    <li>
     <a href="#">
       <span class="box">
         <i class="radmin-icon radmin-book"></i>
@@ -10,8 +10,8 @@
     </li>
 
     <% Project.active.each do |project| %>
-      <li>
-        <a href="#">
+      <li id=<%= project.identifier %>>
+        <a href=<%= project_tasks_path(project) %>>
           <span class="box">
             <i class="radmin-icon radmin-file"></i>
           </span>

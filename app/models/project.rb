@@ -8,4 +8,10 @@ class Project < ActiveRecord::Base
   STATUS.each do |status|
     scope status, where(status_cd: statuses(status))
   end
+
+  validates :identifier, uniqueness: true, presence: true
+
+  def to_param
+    identifier
+  end
 end
