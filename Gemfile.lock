@@ -31,6 +31,9 @@ GEM
     addressable (2.3.2)
     arel (3.0.2)
     awesome_print (1.0.2)
+    better_errors (0.0.7)
+      coderay
+      erubis
     binding_of_caller (0.6.8)
     bootstrap-sass (2.1.0.1)
     bourne (1.1.2)
@@ -254,6 +257,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   bootstrap-sass
   cells
   coffee-rails
