@@ -1,17 +1,18 @@
 def create_production_data
-  #create_administrator
+  create_member
 end
 
 def create_development_data
-  #create_developer
   create_projects
   create_tasks
 end
 
-#def create_administrator
-  #User.create(email: 'admin@production.ca', password: '123456', password_confirmation: '123456') unless User.find_by_email('admin@rickbalbi.ca')
-  #User.create(email: 'admin@andertec.ca', password: '123456', password_confirmation: '123456') unless User.find_by_email('admin@andertec.ca')
-#end
+def create_member
+  ["guan", "shane", "liang"].each do |name|
+    email = "#{name}@andertec.ca"
+    User.create(email: email, nickname: name.capitalize, password: '123456', password_confirmation: '123456') unless User.find_by_email(email)
+  end
+end
 
 def create_projects
   unless Project.count > 0
