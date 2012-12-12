@@ -8,7 +8,6 @@ gem 'pg'
 
 gem 'simple_enum'
 gem 'cells'
-gem 'devise'
 #gem 'haml'
 #gem 'haml-rails'
 # gem 'draper'
