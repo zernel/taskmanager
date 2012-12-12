@@ -1,0 +1,8 @@
+<% if flash.present? %>
+  <div class="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <% flash.each do |name, msg| %>
+      <strong><%= name.capitalize %>!</strong> <%= msg %>
+    <% end %>
+  </div>
+<% end -%>
