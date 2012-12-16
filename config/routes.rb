@@ -5,6 +5,14 @@ Taskmanager::Application.routes.draw do
     resources :tasks
   end
 
+  # Back-end
+  namespace :admin do
+    resources :projects do
+      resources :tasks, as: :memeber
+    end
+  end
+
+  # Authentication
   scope constraints: lambda { |r| r.env['warden'].user.nil? } do
     get "login", to: "sessions#new", as: "login"
   end

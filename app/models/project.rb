@@ -9,6 +9,7 @@ class Project < ActiveRecord::Base
     scope status, where(status_cd: statuses(status))
   end
 
+  validates :name, presence: true
   validates :identifier, uniqueness: true, presence: true
 
   def to_param

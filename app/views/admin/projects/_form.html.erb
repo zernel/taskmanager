@@ -1,4 +1,4 @@
-<%= form_for(@project) do |f| %>
+<%= form_for [:admin, @project] do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -30,4 +30,13 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+
+<%= simple_form_for [:admin, @project] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :overview, as: :text %>
+  <%= f.input :identifier %>
+  <%= f.input :status, collection: Project.statuses_for_select, selected: Project.statuses(:active) %>
+
+  <%= f.button :submit %>
 <% end %>

@@ -10,6 +10,8 @@ gem 'simple_enum'
 gem 'cells'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'warden'
+gem 'inherited_resources'
+#gem 'decent_exposure'
 #gem 'haml'
 #gem 'haml-rails'
 # gem 'draper'
@@ -18,7 +20,7 @@ gem 'warden'
 # gem 'kaminari'
 
 # Form tool
-# gem "simple_form"
+gem "simple_form"
 
 group :assets do
   gem 'sass-rails'
