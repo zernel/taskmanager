@@ -6,21 +6,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <h3>Name:</h3>
   <%= @project.name %>
 </p>
+<hr />
 
 <p>
-  <b>overview:</b>
-  <%= @project.overview %>
+  <h3>overview:</h3>
+  <%= @project.overview.html_safe %>
 </p>
+<hr />
 
 <p>
-  <b>Identifier:</b>
+  <h3>Identifier:</h3>
   <%= @project.identifier %>
 </p>
+<hr />
 
 <p>
-  <b>Status cd:</b>
-  <%= @project.status_cd %>
+  <h3>Status cd:</h3>
+  <%= @project.status %>
 </p>

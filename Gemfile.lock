@@ -38,6 +38,8 @@ GEM
     binding_of_caller (0.6.8)
     bootstrap-sass (2.2.1.1)
       sass (~> 3.2)
+    bootstrap-wysihtml5-rails (0.3.1.13)
+      railties (>= 3.0)
     bourne (1.1.2)
       mocha (= 0.10.5)
     builder (3.0.4)
@@ -274,6 +276,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  bootstrap-wysihtml5-rails
   cells
   coffee-rails
   compass-rails

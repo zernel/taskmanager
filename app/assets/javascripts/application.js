@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5/locales
 //= require submenu
 //= require events_observer
+//= require wysihtml5

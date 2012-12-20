@@ -18,7 +18,7 @@
       <div class="accordion-inner">
         <div>
           <b>Description:</b>
-          <p><%= task.description %></p>
+          <p><%= task.description.html_safe %></p>
         </div>
         <div class="btn-group">
           <% if task.todo? %>
