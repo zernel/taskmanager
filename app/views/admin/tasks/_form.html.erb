@@ -1,8 +1,8 @@
 <%= simple_form_for([:admin, @task], :html => { :class => 'form-horizontal' }) do |f| %>
+  <%= f.input :type, collection: Task.types_for_select, selected: Task.types(:feature), :input_html => { :class => "span6" } %>
   <%= f.input :subject, :input_html => { :class => "span6" } %>
   <%= f.input :project_id, collection: Project.active, :input_html => { :class => "span6" } %>
   <%= f.input :status, collection: Task.statuses_for_select, selected: Task.statuses(:todo), :input_html => { :class => "span6" } %>
-  <%= f.input :type, collection: Task.types_for_select, selected: Task.types(:feature), :input_html => { :class => "span6" } %>
   <%= f.input :priority, collection: Task.priorities_for_select, selected: Task.priorities(:regular), :input_html => { :class => "span6" } %>
   <%= f.input :description, as: :text, :input_html => { :class => "span9 wysihtml5" } %>
 

@@ -4,7 +4,8 @@ class Admin::TasksController < Admin::ApplicationController
       unless @task.errors.empty? # failure
         format.html { render action: "new" }
       else
-        format.html { redirect_to project_tasks_path(@task.project) }
+        #format.html { redirect_to project_tasks_path(@task.project) }
+        format.html { redirect_to root_path }
       end
     end
   end
@@ -14,7 +15,8 @@ class Admin::TasksController < Admin::ApplicationController
       unless @task.errors.empty? # failure
         format.html { render action: "edit" }
       else
-        format.html { redirect_to project_tasks_path(@task.project) }
+        #format.html { redirect_to project_tasks_path(@task.project) }
+        format.html { redirect_to root_path }
       end
     end
   end
