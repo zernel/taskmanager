@@ -4,7 +4,10 @@ Taskmanager::Application.routes.draw do
   resources :projects do
     resources :tasks, only: :index
   end
-  #post 'tasks/:id/finish', to: 'tasks#finish', as: :finish_task
+  post 'tasks/:task_id/finish', to: 'tasks#finish', as: :finish_task
+  post 'tasks/:task_id/take', to: 'tasks#take', as: :take_task
+  post 'tasks/:task_id/rollback', to: 'tasks#rollback', as: :rollback_task
+  post 'tasks/:task_id/checked', to: 'tasks#checked', as: :checked_task
 
   # Back-end
   namespace :admin do

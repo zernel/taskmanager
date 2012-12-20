@@ -28,15 +28,17 @@
         </div>
         <div class="btn-group">
           <% if task.todo? %>
-            <a href="javascript:void(0);"><button class="btn btn-small"><i class="icon-tag"></i> Take</button></a>
-            <a href="javascript:void(0);" class="task-finish" data-task-id=<%= task.id %>><button class="btn btn-small"><i class="icon-ok"></i> Finish</button></a>
+            <% unless task.doing? %>
+              <a href=<%= take_task_path(task) %> class="btn btn-small" data-method="post" rel="nofollow"><i class="icon-tag"></i> Take</a>
+            <% end -%>
+            <a href=<%= finish_task_path(task) %> class="btn btn-small" data-method="post" rel="nofollow"> <i class="icon-ok"></i> Finish</a>
             <a href=<%= edit_admin_task_path(task) %>><button class="btn btn-small"><i class="icon-pencil"></i> Edit</button></a>
             <%= link_to [:admin, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small"  do %>
               <i class="icon-remove"></i> Delete
             <% end -%>
           <% elsif task.toreview? %>
-            <a href="javascript:void(0);"><button class="btn btn-small"><i class="icon-repeat"></i> Rollback</button></a>
-            <a href="javascript:void(0);"><button class="btn btn-small"><i class="icon-ok"></i> Checked</button></a>
+            <a href=<%= rollback_task_path(task) %> data-method="post" rel="nofollow" class="btn btn-small"><i class="icon-repeat"></i> Rollback</a>
+            <a href=<%= checked_task_path(task) %> data-method="post" rel="nofollow" class="btn btn-small"><i class="icon-ok"></i> Checked</a>
           <% end -%>
         </div>
       </div>

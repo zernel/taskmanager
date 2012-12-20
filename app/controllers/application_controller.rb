@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
   def warden
     env['warden']
   end
+
+  def save_return_to
+    session[:return_to] ||= request.referer
+  end
 end

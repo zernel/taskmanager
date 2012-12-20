@@ -1,11 +1,12 @@
 class Admin::TasksController < Admin::ApplicationController
+  before_filter :save_return_to, only: [:edit, :new]
+
   def create
     create! do |format|
       unless @task.errors.empty? # failure
         format.html { render action: "new" }
       else
-        #format.html { redirect_to project_tasks_path(@task.project) }
-        format.html { redirect_to root_path(task_id: @task.id) }
+        format.html { redirect_to session.delete(:return_to) }
       end
     end
   end
@@ -15,8 +16,7 @@ class Admin::TasksController < Admin::ApplicationController
       unless @task.errors.empty? # failure
         format.html { render action: "edit" }
       else
-        #format.html { redirect_to project_tasks_path(@task.project) }
-        format.html { redirect_to root_path(task_id: @task.id) }
+        format.html { redirect_to session.delete(:return_to) }
       end
     end
   end
