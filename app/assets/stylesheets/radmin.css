@@ -98,6 +98,10 @@ a.btn.logout {
 	margin: -2px -25px 0 10px;
 }
 
+a.btn.new-task {
+	margin: -2px 0 0 10px;
+}
+
 a.user-info:hover {
 	color: #333;
 	text-decoration: none !important;

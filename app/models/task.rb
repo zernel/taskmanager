@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  attr_accessible :subject, :description, :priority, :project, :status, :type
+  attr_accessible :subject, :description, :priority, :project, :status, :type, :status_cd
   belongs_to :project
 
   STATUS = [:todo, :toreview, :done]

@@ -22,15 +22,15 @@
         </div>
         <div class="btn-group">
           <% if task.todo? %>
-            <button class="btn btn-small"><i class="icon-tag"></i> Take it</button>
-            <button class="btn btn-small"><i class="icon-ok"></i> Finish</button>
-            <button class="btn btn-small"><i class="icon-pencil"></i> Edit</button>
-            <%= link_to [task.project, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small"  do %>
+            <a href="javascript:void(0);"><button class="btn btn-small"><i class="icon-tag"></i> Take</button></a>
+            <a href="javascript:void(0);" class="task-finish" data-task-id=<%= task.id %>><button class="btn btn-small"><i class="icon-ok"></i> Finish</button></a>
+              <a href="javascript:void(0);"><button class="btn btn-small"><i class="icon-pencil"></i> Edit</button></a>
+            <%= link_to task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small"  do %>
               <i class="icon-remove"></i> Delete
             <% end -%>
           <% elsif task.toreview? %>
-            <button class="btn btn-small"><i class="icon-repeat"></i> Rollback</button>
-            <button class="btn btn-small"><i class="icon-ok"></i> Checked</button>
+            <a href="javascript:void(0);"><button class="btn btn-small"><i class="icon-repeat"></i> Rollback</button></a>
+            <a href="javascript:void(0);"><button class="btn btn-small"><i class="icon-ok"></i> Checked</button></a>
           <% end -%>
         </div>
       </div>
@@ -40,5 +40,23 @@
 
 <script type="text/javascript" charset="utf-8">
   // For test
-  // $('#collapse-19').addClass('in');
+  $('#collapse-19').addClass('in');
 </script>
+
+<!-- Modal Example
+<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>
+-->
