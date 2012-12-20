@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  attr_accessible :subject, :description, :priority, :project, :status, :type, :status_cd
+  attr_accessible :subject, :description, :priority, :project, :status, :type, :status_cd, :project_id
   belongs_to :project
 
   STATUS = [:todo, :toreview, :done]
@@ -14,4 +14,6 @@ class Task < ActiveRecord::Base
   STATUS.each do |status|
     scope status, where(status_cd: statuses(status))
   end
+
+  validates_presence_of :subject, :priority_cd, :project_id, :status_cd, :type_cd
 end

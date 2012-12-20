@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
   inherit_resources
-  #respond_to :html, :json
-  actions :destroy
+  actions :destroy, :new, :create
 
   def index
+    redirect_to project_tasks_path(Task.last.project) and return unless params[:project_id]
     @project = Project.find_by_identifier(params[:project_id])
     go_to_404 and return unless @project
     @tasks = @project.tasks
@@ -24,8 +24,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    destroy! do |format|
-      format.html { redirect_to project_tasks_path(@task.project) }
-    end
+    destroy! { project_tasks_path(@task.project) }
   end
 end
