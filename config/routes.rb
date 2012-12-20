@@ -4,12 +4,12 @@ Taskmanager::Application.routes.draw do
   resources :projects do
     resources :tasks, only: :index
   end
-  resources :tasks, only: [:destroy, :update, :new, :create, :index]
 
   # Back-end
   namespace :admin do
     resources :projects
-    resources :tasks, only: [:new, :create]
+    resources :users
+    resources :tasks, except: [:index]
   end
 
   # Authentication

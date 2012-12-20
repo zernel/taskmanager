@@ -1,0 +1,28 @@
+<div class="sidebar-nav">
+  <ul class="nav nav-stacked left-menu">
+    <li class=<%= "active" if params[:controller] == 'admin/users' %>>
+      <a href=<%= admin_users_path %>>
+        <span class="box">
+          <i class="radmin-icon radmin-user"></i>
+        </span>
+        <span class="hidden-tablet hidden-phone">Users</span>
+      </a>
+    </li>
+    <li class=<%= "active" if params[:controller] == 'admin/projects' %>>
+      <a href=<%= admin_projects_path %>>
+        <span class="box">
+          <i class="radmin-icon radmin-book"></i>
+        </span>
+        <span class="hidden-tablet hidden-phone">Projects</span>
+      </a>
+    </li>
+    <li class=<%= "active" if params[:controller] == 'admin/tasks' %>>
+      <a href=<%= new_admin_task_path %>>
+        <span class="box">
+          <i class="radmin-icon radmin-pencil"></i>
+        </span>
+        <span class="hidden-tablet hidden-phone">New Tasks</span>
+      </a>
+    </li>
+  </ul>
+</div>

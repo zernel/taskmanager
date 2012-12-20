@@ -1,3 +1,8 @@
+<ul class="breadcrumb">
+  <li><a href=<%= admin_projects_path %>>Projects</a> <span class="divider">/</span></li>
+  <li class="active">Show</li>
+</ul>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -19,7 +24,3 @@
   <b>Status cd:</b>
   <%= @project.status_cd %>
 </p>
-
-
-<%= link_to 'Edit', edit_admin_project_path(@project) %> |
-<%= link_to 'Back', admin_projects_path %>
