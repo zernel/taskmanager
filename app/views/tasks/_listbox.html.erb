@@ -14,7 +14,7 @@
         <% end -%>
       </a>
     </div>
-    <div id=<%= "collapse-#{task.id}" %> class="accordion-body collapse">
+    <div id=<%= "collapse-#{task.id}" %> class="accordion-body collapse <%= "in" if task.id == params[:task_id] %>">
       <div class="accordion-inner">
         <div>
           <b>Description:</b>
