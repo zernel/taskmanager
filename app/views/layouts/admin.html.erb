@@ -34,6 +34,12 @@
           <div class="container-fluid content-wrapper">
             <div class="row-fluid">
               <div class="span12">
+                <% flash.each do |name, msg| %>
+                  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+                    <a class="close" data-dismiss="alert">×</a>
+                    <%= msg %>
+                  </div>
+                <% end %>
                 <%= yield %>
               </div>
             </div>

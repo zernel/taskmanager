@@ -1,6 +1,14 @@
 <div class="sidebar-nav">
   <ul class="nav nav-stacked left-menu">
-    <li class=<%= "active" if params[:controller] == 'admin/users' %>>
+    <li class=<%= "active" if params[:controller] == 'admin/users' && params[:action] == 'edit' %>>
+      <a href=<%= edit_admin_user_path(current_user) %>>
+        <span class="box">
+          <i class="radmin-icon radmin-user"></i>
+        </span>
+        <span class="hidden-tablet hidden-phone">Account</span>
+      </a>
+    </li>
+    <li class=<%= "active" if params[:controller] == 'admin/users' && params[:action] != 'edit' %>>
       <a href=<%= admin_users_path %>>
         <span class="box">
           <i class="radmin-icon radmin-user"></i>

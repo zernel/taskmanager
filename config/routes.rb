@@ -8,7 +8,7 @@ Taskmanager::Application.routes.draw do
   # Back-end
   namespace :admin do
     resources :projects
-    resources :users
+    resources :users, except: [:destroy, :show]
     resources :tasks, except: [:index]
   end
 

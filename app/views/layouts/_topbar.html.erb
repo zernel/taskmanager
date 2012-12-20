@@ -11,7 +11,7 @@
       <% if current_user %>
         <div class="nav-collapse collapse">
           <p class="navbar-text pull-right">
-            <a id="user-popover" href="javascript:void(0);" class="navbar-link user-info"> <i class="radmin-icon radmin-user"></i><%= current_user.nickname %></a>
+            <a id="user-popover" href=<%= edit_admin_user_path(current_user) %> class="navbar-link user-info"> <i class="radmin-icon radmin-user"></i><%= current_user.nickname %></a>
             <a href=<%= new_admin_task_path %> class="btn btn-mini btn-inverse navbar-link new-task"> <i class="radmin-icon radmin-cube"></i>New Task</a>
             <a href=<%= logout_path %> data-method="delete" class="btn btn-mini btn-inverse navbar-link logout"> <i class="radmin-icon radmin-redo"></i>Logout</a>
           </p>
