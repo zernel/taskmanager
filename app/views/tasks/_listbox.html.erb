@@ -4,18 +4,24 @@
     <div class="accordion-heading">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#task-list" href=<%= "#collapse-#{task.id}" %>>
         <i class="radmin-icon radmin-checkbox<%= "-unchecked" if task.todo? %>"></i>
-        <%= task.subject %>
+        <%= "##{task.id} #{task.subject}" %>
         <% if @project.nil? %>
           <span class="label label-inverse"><%= task.project.name %></span>
         <% end -%>
         <span class="label label-<%= task.type %>"><%= task.type.capitalize %></span>
-        <% if task.todo? %>
+        <% if task.doing? %>
           <span class="label">Doing</span>
         <% end -%>
       </a>
     </div>
     <div id=<%= "collapse-#{task.id}" %> class="accordion-body collapse <%= "in" if task.id == params[:task_id] %>">
       <div class="accordion-inner">
+        <% if task.assignee.present? %>
+          <div>
+            <b><%= task.todo? ? "Assignee To:" : "Finished by:" %></b>
+            <p><%= task.assignee.nickname %></p>
+          </div>
+        <% end -%>
         <div>
           <b>Description:</b>
           <p><%= task.description.html_safe %></p>

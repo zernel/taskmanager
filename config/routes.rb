@@ -4,6 +4,7 @@ Taskmanager::Application.routes.draw do
   resources :projects do
     resources :tasks, only: :index
   end
+  #post 'tasks/:id/finish', to: 'tasks#finish', as: :finish_task
 
   # Back-end
   namespace :admin do

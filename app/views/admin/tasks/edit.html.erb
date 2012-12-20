@@ -1,6 +1,6 @@
 <ul class="breadcrumb">
   <li><a href=<%= root_path %>>Tasks</a> <span class="divider">/</span></li>
-  <li class="active">Edit</li>
+  <li class="active"><%= "Edit ##{@task.id} #{@task.subject}" %></li>
 </ul>
 
 <%= render 'form' %>

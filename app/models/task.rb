@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
-  attr_accessible :subject, :description, :priority, :project, :status, :type, :status_cd, :project_id
+  attr_accessible :subject, :description, :priority, :project, :status, :type, :status_cd, :project_id, :assignee, :assignee_id
   belongs_to :project
+  belongs_to :assignee, class_name: 'User', foreign_key: "assignee_id"
 
   STATUS = [:todo, :toreview, :done]
   TYPE = [:feature, :bug, :research]
@@ -16,4 +17,8 @@ class Task < ActiveRecord::Base
   end
 
   validates_presence_of :subject, :priority_cd, :project_id, :status_cd, :type_cd
+
+  def doing?
+    todo? && assignee.present?
+  end
 end
