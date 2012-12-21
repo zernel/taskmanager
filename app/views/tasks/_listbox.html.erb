@@ -14,7 +14,7 @@
         <% end -%>
       </a>
     </div>
-    <div id=<%= "collapse-#{task.id}" %> class="accordion-body collapse <%= "in" if task.id == params[:task_id] %>">
+    <div id=<%= "collapse-#{task.id}" %> class="accordion-body collapse <%= "in" if task.id.to_s == params[:task_id] %>">
       <div class="accordion-inner">
         <% if task.assignee.present? %>
           <div class="info-inline">
@@ -34,12 +34,12 @@
             <%= task.creater.nickname %>
           </div>
         <% end -%>
-        <% unless task.description.blank? %>
-          <div>
+        <div>
+          <% unless task.description.blank? %>
             <b>Description:</b>
             <p><%= task.description.html_safe %></p>
-          </div>
-        <% end -%>
+          <% end -%>
+        </div>
         <% unless task.done? %>
           <div class="btn-group">
             <% if task.todo? %>
@@ -61,11 +61,6 @@
     </div>
   </div>
 <% end -%>
-
-<script type="text/javascript" charset="utf-8">
-  // For test
-  $('#collapse-19').addClass('in');
-</script>
 
 <!-- Modal Example
 <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
