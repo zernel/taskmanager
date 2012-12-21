@@ -1,11 +1,16 @@
 <%= simple_form_for([:admin, @task], :html => { :class => 'form-horizontal' }) do |f| %>
-  <%= f.input :type, collection: Task.types_for_select, selected: Task.types(:feature), :input_html => { :class => "span6" } %>
-  <%= f.input :subject, :input_html => { :class => "span6" } %>
-  <%= f.input :project_id, collection: Project.active, :input_html => { :class => "span6" } %>
-  <%= f.input :status, collection: Task.statuses_for_select, selected: Task.statuses(:todo), :input_html => { :class => "span6" } %>
-  <%= f.input :priority, collection: Task.priorities_for_select, selected: Task.priorities(:regular), :input_html => { :class => "span6" } %>
-  <%= f.association :assignee, label_method: :nickname, value_method: :id, :input_html => { :class => "span6" } %>
-  <%= f.input :description, as: :text, :input_html => { :class => "span9 wysihtml5" } %>
+  <%= f.input :type, collection: Task.types_for_select, selected: Task.types(:feature), input_html: { class: "span6" } %>
+  <%= f.input :subject, input_html: { class: "span6" } %>
+  <%#= f.input :project_id, collection: Project.active, input_html: { class: "span6" } %>
+  <%= f.association :project, input_html: { class: "span6" } %>
+  <%= f.input :status, collection: Task.statuses_for_select, selected: Task.statuses(:todo), input_html: { class: "span6" } %>
+  <%= f.association :assignee, label_method: :nickname, value_method: :id, input_html: { class: "span6" } %>
+  <%= f.input :priority, collection: Task.priorities_for_select, selected: Task.priorities(:regular), input_html: { class: "span6" }, hint: "Select high priority will diplay red border in tasks list." %>
+  <%= f.input :description, as: :text, input_html: { class: "span9 wysihtml5" } %>
+
+  <% if @task.new_record? %>
+    <%= f.input :creater_id, as: :hidden, input_html: { value: current_user.id } %>
+  <% end -%>
 
   <div class="control-group">
     <div class="controls">

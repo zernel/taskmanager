@@ -22,13 +22,13 @@ class TasksController < ApplicationController
 
   def rollback
     @task = Task.find(params[:task_id])
-    @task.update_attributes(status: :todo, assignee: nil)
+    @task.update_attributes(status: :todo, assignee: nil, creater: current_user)
     redirect_to session.delete(:return_to)
   end
 
   def checked
     @task = Task.find(params[:task_id])
-    @task.update_attributes(status: :done)
+    @task.update_attributes(status: :done, checker: current_user)
     redirect_to session.delete(:return_to)
   end
 end

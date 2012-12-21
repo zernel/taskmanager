@@ -17,30 +17,46 @@
     <div id=<%= "collapse-#{task.id}" %> class="accordion-body collapse <%= "in" if task.id == params[:task_id] %>">
       <div class="accordion-inner">
         <% if task.assignee.present? %>
-          <div>
+          <div class="info-inline">
             <b><%= task.todo? ? "Assignee To:" : "Finished by:" %></b>
-            <p><%= task.assignee.nickname %></p>
+            <%= task.assignee.nickname %>
           </div>
         <% end -%>
-        <div>
-          <b>Description:</b>
-          <p><%= task.description.html_safe %></p>
-        </div>
-        <div class="btn-group">
-          <% if task.todo? %>
-            <% unless task.doing? %>
-              <a href=<%= take_task_path(task) %> class="btn btn-small" data-method="post" rel="nofollow"><i class="icon-tag"></i> Take</a>
+        <% if task.checker.present? %>
+          <div class="info-inline">
+            <b>Checked by:</b>
+            <%= task.checker.nickname %>
+          </div>
+        <% end -%>
+        <% if task.creater.present? %>
+          <div class="info-inline">
+            <b>Created by:</b>
+            <%= task.creater.nickname %>
+          </div>
+        <% end -%>
+        <% unless task.description.blank? %>
+          <div>
+            <b>Description:</b>
+            <p><%= task.description.html_safe %></p>
+          </div>
+        <% end -%>
+        <% unless task.done? %>
+          <div class="btn-group">
+            <% if task.todo? %>
+              <% unless task.doing? %>
+                <a href=<%= take_task_path(task) %> class="btn btn-small" data-method="post" rel="nofollow"><i class="icon-tag"></i> Take</a>
+              <% end -%>
+              <a href=<%= finish_task_path(task) %> class="btn btn-small" data-method="post" rel="nofollow"> <i class="icon-ok"></i> Finish</a>
+              <a href=<%= edit_admin_task_path(task) %>><button class="btn btn-small"><i class="icon-pencil"></i> Edit</button></a>
+              <%= link_to [:admin, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small"  do %>
+                <i class="icon-remove"></i> Delete
+              <% end -%>
+            <% elsif task.toreview? %>
+              <a href=<%= rollback_task_path(task) %> data-method="post" rel="nofollow" class="btn btn-small"><i class="icon-repeat"></i> Rollback</a>
+              <a href=<%= checked_task_path(task) %> data-method="post" rel="nofollow" class="btn btn-small"><i class="icon-ok"></i> Checked</a>
             <% end -%>
-            <a href=<%= finish_task_path(task) %> class="btn btn-small" data-method="post" rel="nofollow"> <i class="icon-ok"></i> Finish</a>
-            <a href=<%= edit_admin_task_path(task) %>><button class="btn btn-small"><i class="icon-pencil"></i> Edit</button></a>
-            <%= link_to [:admin, task], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-small"  do %>
-              <i class="icon-remove"></i> Delete
-            <% end -%>
-          <% elsif task.toreview? %>
-            <a href=<%= rollback_task_path(task) %> data-method="post" rel="nofollow" class="btn btn-small"><i class="icon-repeat"></i> Rollback</a>
-            <a href=<%= checked_task_path(task) %> data-method="post" rel="nofollow" class="btn btn-small"><i class="icon-ok"></i> Checked</a>
-          <% end -%>
-        </div>
+          </div>
+        <% end -%>
       </div>
     </div>
   </div>

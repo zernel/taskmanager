@@ -1,7 +1,10 @@
 class Task < ActiveRecord::Base
-  attr_accessible :subject, :description, :priority, :project, :status, :type, :status_cd, :project_id, :assignee, :assignee_id
+  attr_accessible :subject, :description, :priority, :project, :status, :type, :status_cd, :project_id, :assignee, :assignee_id, :creater, :creater_id, :checker, :checker_id
+
   belongs_to :project
   belongs_to :assignee, class_name: 'User', foreign_key: "assignee_id"
+  belongs_to :checker, class_name: 'User', foreign_key: "checker_id"
+  belongs_to :creater, class_name: 'User', foreign_key: "creater_id"
 
   STATUS = [:todo, :toreview, :done]
   TYPE = [:feature, :bug, :research]
