@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: andertask_development
+  pool: 5
+  username: postgres
+  password:
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: andertask_test
+  pool: 5
+  username: postgres
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: andertask_production
+  pool: 5
+  username: postgres
+  password:

@@ -12,16 +12,15 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'warden'
 gem 'inherited_resources'
 gem 'bootstrap-wysihtml5-rails'
-#gem 'decent_exposure'
-#gem 'haml'
-#gem 'haml-rails'
+gem "simple_form"
+# gem 'decent_exposure'
+# gem 'haml'
+# gem 'haml-rails'
 # gem 'draper'
-
-# Paginator
 # gem 'kaminari'
 
-# Form tool
-gem "simple_form"
+gem 'capistrano'
+gem 'rvm-capistrano'
 
 group :assets do
   gem 'sass-rails'
