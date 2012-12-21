@@ -1,7 +1,9 @@
 <div class="hero-unit">
   <button type="button" class="close hidden-phone" data-dismiss="alert">&times;</button>
-  <h1>Notice</h1>
-  <p>
-  This is your dashboard. Here you'll find a quick breakdown of everything that's been happening on your site, such as traffic reports, site statistics, sales, recent posts and lots more.
-  </p>
+  <h1>Welcome!</h1>
+  <p>Hi guy! There is no project now. You need to create project and then create tasks for the project appointed. </p>
+  <div class="pull-right">
+    <%= link_to "New Project", new_admin_project_path, class: 'btn btn-primary' %>
+    <%= link_to "New Task", new_admin_task_path, class: 'btn btn-info' %>
+  </div>
 </div>
