@@ -1,0 +1,7 @@
+<%= form_tag sessions_path, class: "form-login" do %>
+  <h2 class="form-signin-heading">Login</h2>
+  <%= render 'layouts/alert' %>
+  <%= text_field_tag :email, params[:email], class: "input-block-level", placeholder: "Email Address" %>
+  <%= password_field_tag :password, nil, class: "input-block-level", placeholder: "Password" %>
+  <%= submit_tag "Log in", class: "btn btn-large btn-primary" %>
+<% end %>

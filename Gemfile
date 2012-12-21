@@ -3,26 +3,38 @@ source 'http://ruby.taobao.org'
 
 gem 'rails'
 
-# Javascript library
 gem 'jquery-rails'
-
 gem 'pg'
 
-# Design Pattern Practice
-# gem 'cells'
+gem 'simple_enum'
+gem 'cells'
+gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'warden'
+gem 'inherited_resources'
+gem 'bootstrap-wysihtml5-rails'
+#gem 'decent_exposure'
+#gem 'haml'
+#gem 'haml-rails'
 # gem 'draper'
 
 # Paginator
 # gem 'kaminari'
 
 # Form tool
-# gem "simple_form"
+gem "simple_form"
 
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
+  gem 'bootstrap-sass'
+  gem 'compass-rails'
   gem 'therubyracer', :platforms => :ruby
   gem 'uglifier'
+end
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development, :test do
@@ -36,6 +48,7 @@ group :development, :test do
   gem 'pry-debugger'
   gem 'ffaker'
   gem 'factory_girl_rails'
+  gem "rspec-rails"
 end
 
 group :test do
@@ -50,5 +63,4 @@ group :test do
   gem "guard-bundler"
   gem "spork"
   gem 'spork-rails'
-  gem "rspec-rails"
 end

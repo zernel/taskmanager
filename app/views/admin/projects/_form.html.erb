@@ -1,0 +1,12 @@
+<%= simple_form_for([:admin, @project], :html => { :class => 'form-horizontal' }) do |f| %>
+  <%= f.input :name, :input_html => { :class => "span6" } %>
+  <%= f.input :identifier, :input_html => { :class => "span6" } %>
+  <%= f.input :status, collection: Project.statuses_for_select, selected: Project.statuses(:active), :input_html => { :class => "span6" } %>
+  <%= f.input :overview, as: :text, :input_html => { :class => "span9 wysihtml5" } %>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.button :submit, class: 'btn-primary' %>
+    </div>
+  </div>
+<% end %>

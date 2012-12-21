@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require bootstrap
+//= require bootstrap-wysihtml5
+//= require submenu
+//= require events_observer
+//= require wysihtml5

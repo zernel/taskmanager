@@ -1,60 +1,25 @@
 Taskmanager::Application.routes.draw do
   root :to => 'sites#index'
 
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  resources :projects do
+    resources :tasks, only: :index
+  end
+  post 'tasks/:task_id/finish', to: 'tasks#finish', as: :finish_task
+  post 'tasks/:task_id/take', to: 'tasks#take', as: :take_task
+  post 'tasks/:task_id/rollback', to: 'tasks#rollback', as: :rollback_task
+  post 'tasks/:task_id/checked', to: 'tasks#checked', as: :checked_task
 
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
+  # Back-end
+  namespace :admin do
+    resources :projects
+    resources :users, except: [:destroy, :show]
+    resources :tasks, except: [:index]
+  end
 
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
-
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  # Authentication
+  scope constraints: lambda { |r| r.env['warden'].user.nil? } do
+    get "login", to: "sessions#new", as: :login
+  end
+  delete "logout", to: "sessions#destroy", as: :logout
+  resources :sessions, only: :create
 end

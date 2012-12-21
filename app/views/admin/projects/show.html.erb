@@ -1,0 +1,29 @@
+<ul class="breadcrumb">
+  <li><a href=<%= admin_projects_path %>>Projects</a> <span class="divider">/</span></li>
+  <li class="active">Show</li>
+</ul>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h3>Name:</h3>
+  <%= @project.name %>
+</p>
+<hr />
+
+<p>
+  <h3>overview:</h3>
+  <%= @project.overview.html_safe %>
+</p>
+<hr />
+
+<p>
+  <h3>Identifier:</h3>
+  <%= @project.identifier %>
+</p>
+<hr />
+
+<p>
+  <h3>Status cd:</h3>
+  <%= @project.status %>
+</p>

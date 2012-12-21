@@ -1,0 +1,32 @@
+<ul class="breadcrumb">
+  <li><a href="javascript:void(0);">Projects</a> <span class="divider">/</span></li>
+  <li class="active">List</li>
+</ul>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Identifier</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td><%= project.identifier %></td>
+        <td><%= project.status %></td>
+        <td>
+          <%= link_to 'Show', [:admin, project], class: 'btn btn-mini' %>
+          <%= link_to 'Edit', edit_admin_project_path(project), class: 'btn btn-mini' %>
+          <%= link_to 'Destroy', [:admin, project], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Project', new_admin_project_path, class: 'btn btn-primary' %>

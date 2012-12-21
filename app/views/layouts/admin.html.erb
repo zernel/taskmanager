@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AnderLabs | Taskmanager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+    <!--[if lte IE 9]>
+      <%= javascript_include_tag "placeholder" %>
+    <![endif]-->
+    <!--[if lte IE 7]>
+      <%= javascript_include_tag "lte-ie7" %>
+    <![endif]-->
+
+    <!--[if (lt IE 9) & (!IEMobile)]>
+      <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <%= render 'layouts/topbar' %>
+    <%#= render 'layouts/navigation' %>
+
+    <div class="container-fluid main-container">
+      <div class="row-fluid">
+        <div class="span12">
+          <%= render 'layouts/admin_sidebar' %>
+
+          <div class="container-fluid content-wrapper">
+            <div class="row-fluid">
+              <div class="span12">
+                <% flash.each do |name, msg| %>
+                  <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+                    <a class="close" data-dismiss="alert">×</a>
+                    <%= msg %>
+                  </div>
+                <% end %>
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row-fluid">
+            <div class="span12">&nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
