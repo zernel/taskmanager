@@ -1,5 +1,5 @@
 class Admin::TasksController < Admin::ApplicationController
-  before_filter :save_return_to, only: [:edit, :new]
+  before_filter :save_return_to, only: [:edit, :new, :destroy]
 
   def create
     create! do |format|
@@ -22,6 +22,6 @@ class Admin::TasksController < Admin::ApplicationController
   end
 
   def destroy
-    destroy! { project_tasks_path(@task.project) }
+    destroy! { session.delete(:return_to) }
   end
 end
