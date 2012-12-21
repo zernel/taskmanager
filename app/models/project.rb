@@ -15,4 +15,12 @@ class Project < ActiveRecord::Base
   def to_param
     identifier
   end
+
+  def check_status
+    if active?
+      update_attributes(status: :inactive) unless tasks.active.present?
+    else
+      update_attributes(status: :active) if tasks.active.present?
+    end
+  end
 end
