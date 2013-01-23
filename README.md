@@ -3,6 +3,15 @@
 ### Screenshots
 ![screenshots](https://github.com/zernel/taskmanager/raw/develop/screenshot.png)
 
+## Workflow
+* 发布任务(task 状态为 :todo)
+* 接收任务 Take (task 会添加label "doing" 还有设置 "Assignee to")
+* 完成任务 Finish（task 状态会设置为 :toreview）
+* 检查任务完成情况，如果完成，Checked!（task 状态会设置为
+  :done，并把设置 checker）
+* 检查任务完成情况，如果未完成或有问题，Rollback！然后更新
+  description（task 状态会切换回 :todo，把 assignee 设置为 nil）
+
 ## Project
 ### Status
 
@@ -24,15 +33,6 @@
 * :todo => { 还没做的任务 }
 * :toreview => { 已经完成等待检查 }
 * :done => { 已经完成并检查完成 }
-
-## Workflow
-* 发布任务(task 状态为 :todo)
-* 接收任务 Take (task 会添加label "doing" 还有设置 "Assignee to")
-* 完成任务 Finish（task 状态会设置为 :toreview）
-* 检查任务完成情况，如果完成，Checked!（task 状态会设置为
-  :done，并把设置 checker）
-* 检查任务完成情况，如果未完成或有问题，Rollback！然后更新
-  description（task 状态会切换回 :todo，把 assignee 设置为 nil）
 
 
 # TODO
