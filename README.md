@@ -1,7 +1,7 @@
 # Introduction
 
 ### Screenshots
-![screenshots]('screenshot.png')
+![screenshots](screenshot.png)
 
 ## Project
 ### Status
