@@ -1,7 +1,7 @@
 # Introduction
 
 ### Screenshots
-![screenshots](screenshot.png)
+![screenshots](https://github.com/zernel/taskmanager/raw/develop/screenshot.png)
 
 ## Project
 ### Status
